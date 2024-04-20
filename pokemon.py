@@ -45,8 +45,8 @@ class Pokemon:
                 if self.types == k:
                     # For if both pokemon are the same types
                     if Pokemon2.types == k:
-                        string_1_attack = '\nNot very effective...'
-                        string_2_attack = '\nNot very effective...'
+                        string_1_attack = '\nNot very effective...\n'
+                        string_2_attack = '\nNot very effective...\n'
 
                     # Pokemon2 is STRONG
                     if Pokemon2.types == version[(i+1)%3]:
@@ -54,8 +54,8 @@ class Pokemon:
                         Pokemon2.defense *= 2
                         self.attack /= 2
                         self.defense /= 2
-                        string_1_attack = '\nNot very effective...'
-                        string_2_attack = '\nSuper effective!!'
+                        string_1_attack = '\nNot very effective...\n'
+                        string_2_attack = '\nSuper effective!!\n'
                         
                     # Pokemon2 is WEAK
                     if Pokemon2.types == version[(i+2)%3]:
@@ -63,8 +63,8 @@ class Pokemon:
                         self.defense *= 2
                         Pokemon2.attack /= 2
                         Pokemon2.defense /= 2
-                        string_1_attack = '\nSuper Effective!!'
-                        string_2_attack = '\nNot very effective...'
+                        string_1_attack = '\nSuper Effective!!\n'
+                        string_2_attack = '\nNot very effective...\n'
                         
             while (self.bars > 0) and (Pokemon2.bars > 0):
                 print(f"\n{self.name}\t\tHLTH\t{self.health}") 
