@@ -76,7 +76,7 @@ class Pokemon:
                 index = int(input('\nPick a move: '))
                 delay_print(f"\n{self.name} used {self.moves[index-1]}!")
                 time.sleep(1)
-                delay_print(string_1_attack)
+                #delay_print(string_1_attack)
                 
                 Pokemon2.bars -= self.attack
                 Pokemon2.health = ""
@@ -101,7 +101,7 @@ class Pokemon:
                 #index = int(input('\nPick a move: '))
                 delay_print(f"\n{Pokemon2.name} used {Pokemon2.moves[random.randint(0, 3)]}!")
                 time.sleep(1)
-                delay_print(string_2_attack)
+                #delay_print(string_2_attack)
                 
                 self.bars -= Pokemon2.attack
                 self.health = ""
@@ -117,8 +117,8 @@ class Pokemon:
                     delay_print("\n..." + self.name + ' fainted.\n')   
                     break
                 
-            money = np.random.choice(1000)
-            delay_print(f"\nOpponnet has paid you ${money}.")
+        money = random.randint(10, 1000)
+        delay_print(f"\nOpponnet has paid you ${money}.\n")
             
 if __name__ == '__main__':
     Charizard = Pokemon('Charizard', 'Fire', ['Flamethrower', 'Fly', 'Blast Burn', 'Fire Punch'], {'ATTACK':12, 'DEFENSE':8})
@@ -134,5 +134,5 @@ if __name__ == '__main__':
     Bulbasaur = Pokemon('Bulbasaur', 'Grass', ['Vine Wip', 'Razor Leaf', 'Tackle', 'Leech Seed'], {'ATTACK':2, 'DEFENSE':4})
         
         
-    Charizard.fight(Blastoise) 
+    Charmeleon.fight(Squirtle) 
     
