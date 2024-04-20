@@ -1,6 +1,7 @@
 import time
 import numpy as np 
 import sys
+import random
 
 def delay_print(s):
     for c in s:
@@ -94,10 +95,11 @@ class Pokemon:
                 # Pokemon2 turn
                 
                 print(f"\nGo {Pokemon2.name}!")
-                for i, x in enumerate(Pokemon2.moves):
-                    print(f"{i+1}.", x)
-                index = int(input('\nPick a move: '))
-                delay_print(f"\n{Pokemon2.name} used {Pokemon2.moves[index-1]}!")
+                # If you wanted to play like an actual game, then this would implementation would be uncommented.
+                #for i, x in enumerate(Pokemon2.moves):
+                    #print(f"{i+1}.", x)
+                #index = int(input('\nPick a move: '))
+                delay_print(f"\n{Pokemon2.name} used {Pokemon2.moves[random.randint(0, 3)]}!")
                 time.sleep(1)
                 delay_print(string_2_attack)
                 
@@ -133,4 +135,4 @@ if __name__ == '__main__':
         
         
     Charizard.fight(Blastoise) 
-    # Ivysaur.fight(Bulbasaur)
+    
