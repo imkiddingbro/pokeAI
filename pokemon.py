@@ -121,7 +121,7 @@ class Pokemon:
                     break
                 
         money = random.randint(10, 1000)
-        delay_print(f"\nOpponnet has paid you ${money}.\n")
+        delay_print(f"\nThe Ai has paid you ${money} as a consolation prize.\n")
             
 if __name__ == '__main__':
     
@@ -158,9 +158,11 @@ if __name__ == '__main__':
     elif list[num-1].types == 'Water':
         aiChoice = list[num].name
         delay_print(f"\n{aiChoice} is your opponent.\n")
+        list[num-1].fight(list[num])
     elif list[num-1].types == 'Grass':
         aiChoice = list[num-3].name
         delay_print(f"\n{aiChoice} is your opponent.\n")
+        list[num-1].fight(list[num-3])
     
     
     
