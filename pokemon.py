@@ -63,12 +63,6 @@ class Pokemon:
         
         time.sleep(1.5)
         
-        # The above code snippet is implementing a battle simulation between two Pokemon. It uses a
-        # while loop to continue the battle until one of the Pokemon's health points (hp) drops below
-        # 0. Within the loop, it displays the health of both Pokemon, allows the user to choose a
-        # move, calculates the damage based on the move selected (physical or special), and then
-        # pauses for 1 second before proceeding. The battle ends when either Pokemon's health drops
-        # below 0.
         # While loop for battle, ends when pokemon drops below 0              
         while (self.hp > 0) and (Pokemon2.hp > 0):
             
@@ -101,12 +95,11 @@ class Pokemon:
                 
                 time.sleep(1)
                             
-                if Pokemon2.hp <= 0:
-                    delay_print("\n..." + remove(Pokemon2.name) + ' fainted.')
-                    break
-                
                 print(f"\n{self.name}\tHP ","|"*int(self.hp))
                 print(f"{Pokemon2.name}\tHP ","|"*int(Pokemon2.hp),"\n")
+                
+                if Pokemon2.hp <= 0:
+                    break
                 
             # Pokemon2 AI's turn
                 
@@ -144,10 +137,11 @@ class Pokemon:
         # Battle has ended        
         money = random.randint(10, 1000)
         if(self.hp<=0): # User won battle
-            delay_print("\n..." + remove(self.name) + ' fainted.\n')
+            delay_print("..." + remove(self.name) + ' fainted.\n')
             delay_print(f"\nYou paid the AI ${money}.\n")
         elif(Pokemon2.hp<=0): # AI won battle
-            delay_print("\n..." + remove(Pokemon2.name) + ' fainted.\n')
+            money *= 50
+            delay_print("..." + remove(Pokemon2.name) + ' fainted.\n')
             delay_print(f"\nThe Ai has paid you ${money}.\n")
             
 if __name__ == '__main__':
@@ -439,15 +433,15 @@ if __name__ == '__main__':
         list[num-1].fight(list[choice])
         
     elif list[num-1].types == 'Ghost':    
-        # Choose ghost or dark for super effective
-        choice = random.choice([13,15])
+        # Choose dark for super effective
+        choice = random.choice([15])
         aiChoice = list[choice].name
         delay_print(f"\n{remove(aiChoice)} is your opponent.\n")
         list[num-1].fight(list[choice])
         
     elif list[num-1].types == 'Dragon':
-        # Choose ice, dragon, or fairy for super effective
-        choice = random.choice([5,14,17])
+        # Choose ice or fairy for super effective
+        choice = random.choice([5,17])
         aiChoice = list[choice].name
         delay_print(f"\n{remove(aiChoice)} is your opponent.\n")
         list[num-1].fight(list[choice])
