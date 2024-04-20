@@ -271,10 +271,10 @@ if __name__ == '__main__':
     list.append(Pokemon('Regirock  ',
                         'Rock', 
                         ['Smack Down | Physical', 'Rock Blast | Physical', 'Power Gem | Special', 'Ancient Power | Special'],
-                        {'HP':80,
-                         'ATTACK':100,
-                         'DEFENSE':200,
-                         'SPECIAL_ATTACK':50,
+                        {'HP':100,
+                         'ATTACK':80,
+                         'DEFENSE':160,
+                         'SPECIAL_ATTACK':60,
                          'SPECIAL_DEFENSE':100, 
                          'SPEED':50}))
     
@@ -291,7 +291,7 @@ if __name__ == '__main__':
     list.append(Pokemon('Regidraco ',
                         'Dragon', 
                         ['Dragon Claw | Physical', 'Dragon Tail | Physical', 'Draco Meteor | Special', 'Dragon Pulse | Special'],
-                        {'HP':200,
+                        {'HP':160,
                          'ATTACK':100,
                          'DEFENSE':50,
                          'SPECIAL_ATTACK':100,
