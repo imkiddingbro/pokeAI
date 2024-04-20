@@ -21,7 +21,7 @@ class Pokemon:
         self.bars = 20
         
     def fight(self, Pokemon2):
-        print("----POKEMON DUEL----")
+        print("\n----POKEMON DUEL----")
         print(f"\n{self.name}")
         print("TYPE/", self.types)
         print("ATTACK/", self.attack)
@@ -43,7 +43,7 @@ class Pokemon:
         for i,k in enumerate(version):
             if self.types == k:
                 if self.types == k:
-                    # For if both pokemon are the same types
+                    # For if both pokemon are the same types ----> Irrelevant for the project
                     if Pokemon2.types == k:
                         string_1_attack = '\nNot very effective...\n'
                         string_2_attack = '\nNot very effective...\n'
@@ -76,7 +76,7 @@ class Pokemon:
                 index = int(input('\nPick a move: '))
                 delay_print(f"\n{self.name} used {self.moves[index-1]}!")
                 time.sleep(1)
-                #delay_print(string_1_attack)
+                delay_print(string_1_attack)
                 
                 Pokemon2.bars -= self.attack
                 Pokemon2.health = ""
@@ -92,16 +92,19 @@ class Pokemon:
                     delay_print("\n..." + Pokemon2.name + ' fainted.')
                     break
                 
-                # Pokemon2 turn
+                # Pokemon2 AI's turn
                 
                 print(f"\nGo {Pokemon2.name}!")
+                
                 # If you wanted to play like an actual game, then this would implementation would be uncommented.
+                
                 #for i, x in enumerate(Pokemon2.moves):
                     #print(f"{i+1}.", x)
                 #index = int(input('\nPick a move: '))
+                
                 delay_print(f"\n{Pokemon2.name} used {Pokemon2.moves[random.randint(0, 3)]}!")
                 time.sleep(1)
-                #delay_print(string_2_attack)
+                delay_print(string_2_attack)
                 
                 self.bars -= Pokemon2.attack
                 self.health = ""
@@ -121,18 +124,43 @@ class Pokemon:
         delay_print(f"\nOpponnet has paid you ${money}.\n")
             
 if __name__ == '__main__':
-    Charizard = Pokemon('Charizard', 'Fire', ['Flamethrower', 'Fly', 'Blast Burn', 'Fire Punch'], {'ATTACK':12, 'DEFENSE':8})
-    Blastoise = Pokemon('Blastoise', 'Water', ['Water Gun', 'Bubblebeam', 'Hydro Pump', 'Surf'], {'ATTACK':10, 'DEFENSE':10})
-    Venusaur = Pokemon('Venusaur', 'Grass', ['Vine Wip', 'Razor Leaf', 'Earthquake', 'Frenzy Plant'], {'ATTACK':8, 'DEFENSE':12})
-        
-    Charmeleon = Pokemon('Charmeleon', 'Fire', ['Ember', 'Scratch', 'Flamethrower', 'Fire Punch'], {'ATTACK':6, 'DEFENSE':5})
-    Wartortle = Pokemon('Wartortle', 'Water', ['Bubblebeam', 'Water Gun', 'Headbutt', 'Surf'], {'ATTACK':5, 'DEFENSE':5})
-    Ivysaur = Pokemon('Ivysaur', 'Grass', ['Vine Wip', 'Razor Leaf', 'Tackle', 'Leech Seed'], {'ATTACK':4, 'DEFENSE':6})
-        
-    Charmander = Pokemon('Charmander', 'Fire', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'], {'ATTACK':4, 'DEFENSE':2})
-    Squirtle = Pokemon('Squirtle', 'Water', ['Bubblebeam', 'Tackle', 'Headbutt', 'Surf'], {'ATTACK':3, 'DEFENSE':3})
-    Bulbasaur = Pokemon('Bulbasaur', 'Grass', ['Vine Wip', 'Razor Leaf', 'Tackle', 'Leech Seed'], {'ATTACK':2, 'DEFENSE':4})
-        
-        
-    Charmeleon.fight(Squirtle) 
+    
+    list = []
+    
+    list.append(Pokemon('Charizard', 'Fire', ['Flamethrower', 'Fly', 'Blast Burn', 'Fire Punch'], {'ATTACK':12, 'DEFENSE':8}))
+    list.append(Pokemon('Blastoise', 'Water', ['Water Gun', 'Bubblebeam', 'Hydro Pump', 'Surf'], {'ATTACK':10, 'DEFENSE':10}))
+    list.append(Pokemon('Venusaur', 'Grass', ['Vine Wip', 'Razor Leaf', 'Earthquake', 'Frenzy Plant'], {'ATTACK':8, 'DEFENSE':12}))
+    
+    list.append(Pokemon('Charmeleon', 'Fire', ['Ember', 'Scratch', 'Flamethrower', 'Fire Punch'], {'ATTACK':6, 'DEFENSE':5}))
+    list.append(Pokemon('Wartortle', 'Water', ['Bubblebeam', 'Water Gun', 'Headbutt', 'Surf'], {'ATTACK':5, 'DEFENSE':5}))
+    list.append(Pokemon('Ivysaur', 'Grass', ['Vine Wip', 'Razor Leaf', 'Tackle', 'Leech Seed'], {'ATTACK':4, 'DEFENSE':6}))
+    
+    list.append(Pokemon('Charmander', 'Fire', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'], {'ATTACK':4, 'DEFENSE':2}))
+    list.append(Pokemon('Squirtle', 'Water', ['Bubblebeam', 'Tackle', 'Headbutt', 'Surf'], {'ATTACK':3, 'DEFENSE':3}))
+    list.append(Pokemon('Bulbasaur', 'Grass', ['Vine Wip', 'Razor Leaf', 'Tackle', 'Leech Seed'], {'ATTACK':2, 'DEFENSE':4}))
+    
+    # Choosing your pokemon
+    
+    delay_print(f"Welcome to the PokeAi Battler.\n\n")
+    
+    for i, x in enumerate(list):
+        print(f"{i+1}.", x.name)
+    num = int(input("\nPick a Pokemon: ")) 
+    playerChoice = list[num-1].name   
+    delay_print(f"\nYou have chosen {playerChoice}.")
+    
+    # Ai choosing
+    
+    if list[num-1].types == 'Fire':
+        aiChoice = list[num].name
+        delay_print(f"\n{aiChoice} is your opponent.\n")
+        list[num-1].fight(list[num])
+    elif list[num-1].types == 'Water':
+        aiChoice = list[num].name
+        delay_print(f"\n{aiChoice} is your opponent.\n")
+    elif list[num-1].types == 'Grass':
+        aiChoice = list[num-3].name
+        delay_print(f"\n{aiChoice} is your opponent.\n")
+    
+    
     
