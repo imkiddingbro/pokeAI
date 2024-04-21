@@ -270,9 +270,9 @@ if __name__ == '__main__':
                         'Fighting', 
                         ['Low Kick | Physical', 'Focus Punch | Physical', 'Focus Blast | Special', 'Aura Sphere | Special'],
                         {'HP':70,
-                         'ATTACK':110,
+                         'ATTACK':1, # 110
                          'DEFENSE':70,
-                         'SPECIAL_ATTACK':115,
+                         'SPECIAL_ATTACK':1, # 115
                          'SPECIAL_DEFENSE':70, 
                          'SPEED':90}))
     
