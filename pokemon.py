@@ -13,7 +13,7 @@ def remove(string):
     return string.replace(" ", "")   
      
 class Pokemon:
-    # Initializing Pokemon
+    # Initializing Pokemon 
     def __init__(self, name, types, moves, stats):
         self.name = name
         self.types = types
@@ -64,7 +64,7 @@ class Pokemon:
         
         time.sleep(1.5)
         
-        # While loop for battle, ends when pokemon drops below 0              
+        # While loop for battle, ends when pokemon drops below 0.             
         while (self.hp > 0) and (Pokemon2.hp > 0):
             
             # Check for beginning of match and display health
