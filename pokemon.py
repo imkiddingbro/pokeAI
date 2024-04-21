@@ -90,7 +90,7 @@ class Pokemon:
                 delay_print(string_1_attack)
             
                 Pokemon2.hp -= move_dmg
-                delay_print(f"\n{remove(Pokemon2.name)} took",int(move_dmg),"damage")
+                print(f"\n{remove(Pokemon2.name)} took",int(move_dmg),"damage")
                 
                 time.sleep(1)
                             
@@ -106,7 +106,7 @@ class Pokemon:
                 delay_print(string_1_attack)
             
                 Pokemon2.hp -= move_dmg
-                delay_print(f"\n{remove(Pokemon2.name)} took",int(move_dmg),"damage")
+                print(f"\n{remove(Pokemon2.name)} took",int(move_dmg),"damage")
                 
                 time.sleep(1)
                             
@@ -115,6 +115,7 @@ class Pokemon:
                 
                 if Pokemon2.hp <= 0:
                     break   
+                
             # Pokemon2 AI's turn
                 
             delay_print(f"\n{remove(Pokemon2.name)}'s turn!")
