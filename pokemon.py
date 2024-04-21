@@ -10,10 +10,9 @@ def delay_print(s):
         time.sleep(0.05)
         
 def remove(string):
-    return string.replace(" ", "")   
-     
+    return string.replace(" ", "")        
 class Pokemon:
-    # Initializing Pokemon 
+    # Initializing Pokemon
     def __init__(self, name, types, moves, stats):
         self.name = name
         self.types = types
@@ -29,8 +28,7 @@ class Pokemon:
     def fight(self, Pokemon2):
         
         # Variable Initialization
-        player_start_health = self.hp
-        opponent_start_health = Pokemon2.hp
+       
         base_move_power = 50
         move_dmg = int
         
@@ -64,11 +62,11 @@ class Pokemon:
         
         time.sleep(1.5)
         
-        # While loop for battle, ends when pokemon drops below 0.             
+        # While loop for battle, ends when pokemon drops below 0              
         while (self.hp > 0) and (Pokemon2.hp > 0):
             
             # Check for beginning of match and display health
-            if Pokemon2.hp == opponent_start_health: 
+            if Pokemon2.hp == Pokemon2.hp: 
                 print(f"\n{self.name}\tHP ","|"*self.hp)
                 print(f"{Pokemon2.name}\tHP ","|"*Pokemon2.hp,"\n")         
  
@@ -87,13 +85,12 @@ class Pokemon:
             # Speed check for first turn
             if(self.speed >= Pokemon2.speed):
                 
-                # Start User's Turn (Move First)
-                print(f"\n{remove(self.name)}'s turn!")
+                delay_print(f"\n{remove(self.name)}'s turn!")
                 delay_print(f"\n{remove(self.name)} used {self.moves[index-1]}!")
                 delay_print(string_1_attack)
             
                 Pokemon2.hp -= move_dmg
-                print(f"\n{remove(Pokemon2.name)} took",int(move_dmg),"damage")
+                delay_print(f"\n{remove(Pokemon2.name)} took",int(move_dmg),"damage")
                 
                 time.sleep(1)
                             
@@ -102,85 +99,14 @@ class Pokemon:
                 
                 if Pokemon2.hp <= 0:
                     break
-        # End User's turn (Move First)
-                
-        # Start AI's turn (Move Second)    
-                print(f"\n{remove(Pokemon2.name)}'s turn!")
-                    
-                    # If you wanted to play like an actual game, then this would implementation would be uncommented.
-                    
-                    #for i, x in enumerate(Pokemon2.moves):
-                        #print(f"{i+1}.", x)
-                    #index = int(input('\nPick a move: '))
-                    
-                time.sleep(1)
-                    
-                # Calculate opponents lower defense stats
-                if(self.defense>self.special_defense): # Lower Physical Defense
-                    delay_print(f"\n{remove(Pokemon2.name)} used {Pokemon2.moves[random.randint(2, 3)]}!")
-                    ai_move_dmg = int(2*base_move_power*(Pokemon2.special_attack/self.special_defense)) # 2x for super effective
-                    self.hp -= ai_move_dmg
-                    time.sleep(1)
-                    delay_print(string_2_attack)
-                    print(f"\n{remove(self.name)} took",int(ai_move_dmg),"damage")
-                else: # Lower Special Defense
-                    delay_print(f"\n{remove(Pokemon2.name)} used {Pokemon2.moves[random.randint(0, 1)]}!")
-                    ai_move_dmg = int(2*base_move_power*(Pokemon2.attack/self.defense)) # 2x for super effective
-                    self.hp -= ai_move_dmg
-                    time.sleep(1)
-                    delay_print(string_2_attack)
-                    print(f"\n{remove(self.name)} took",int(ai_move_dmg),"damage")        
-                
-                time.sleep(1)
-                
-                print(f"\n{self.name}\tHP ","|"*int(self.hp))
-                print(f"{Pokemon2.name}\tHP ","|"*int(Pokemon2.hp),"\n")
-                
-        # End AI's turn (Move Second)
-                
             else:
-        # Start AI's turn (Move First)
-                print(f"\n{remove(Pokemon2.name)}'s turn!")
-                    
-                    # If you wanted to play like an actual game, then this would implementation would be uncommented.
-                    
-                    #for i, x in enumerate(Pokemon2.moves):
-                        #print(f"{i+1}.", x)
-                    #index = int(input('\nPick a move: '))
-                    
-                time.sleep(1)
-                    
-                # Calculate opponents lower defense stat
-                if(self.defense>self.special_defense): # Lower Physical Defense
-                    delay_print(f"\n{remove(Pokemon2.name)} used {Pokemon2.moves[random.randint(2, 3)]}!")
-                    ai_move_dmg = int(2*base_move_power*(Pokemon2.special_attack/self.special_defense)) # 2x for super effective
-                    self.hp -= ai_move_dmg
-                    time.sleep(1)
-                    delay_print(string_2_attack)
-                    print(f"\n{remove(self.name)} took",int(ai_move_dmg),"damage")
-                else: # Lower Special Defense
-                    delay_print(f"\n{remove(Pokemon2.name)} used {Pokemon2.moves[random.randint(0, 1)]}!")
-                    ai_move_dmg = int(2*base_move_power*(Pokemon2.attack/self.defense)) # 2x for super effective
-                    self.hp -= ai_move_dmg
-                    time.sleep(1)
-                    delay_print(string_2_attack)
-                    print(f"\n{remove(self.name)} took",int(ai_move_dmg),"damage")        
-                
-                time.sleep(1)
-                
-                print(f"\n{self.name}\tHP ","|"*int(self.hp))
-                print(f"{Pokemon2.name}\tHP ","|"*int(Pokemon2.hp),"\n")
-                
-        # End AI's turn (Move First)
-                
-        # Start User's Turn (Move Second)
-                
-                print(f"\n{remove(self.name)}'s turn!")
+                # User turn
+                delay_print(f"\n{remove(self.name)}'s turn!")
                 delay_print(f"\n{remove(self.name)} used {self.moves[index-1]}!")
                 delay_print(string_1_attack)
             
                 Pokemon2.hp -= move_dmg
-                print(f"\n{remove(Pokemon2.name)} took",int(move_dmg),"damage")
+                delay_print(f"\n{remove(Pokemon2.name)} took",int(move_dmg),"damage")
                 
                 time.sleep(1)
                             
@@ -188,9 +114,39 @@ class Pokemon:
                 print(f"{Pokemon2.name}\tHP ","|"*int(Pokemon2.hp),"\n")
                 
                 if Pokemon2.hp <= 0:
-                    break
+                    break   
+            # Pokemon2 AI's turn
                 
-        # End User's Turn (Move Second)    
+            delay_print(f"\n{remove(Pokemon2.name)}'s turn!")
+                
+                # If you wanted to play like an actual game, then this would implementation would be uncommented.
+                
+                #for i, x in enumerate(Pokemon2.moves):
+                    #print(f"{i+1}.", x)
+                #index = int(input('\nPick a move: '))
+                
+            time.sleep(1)
+                
+            # Calculate opponents lower defense stat
+            if(self.defense>self.special_defense): # Lower Physical Defense
+                delay_print(f"\n{remove(Pokemon2.name)} used {Pokemon2.moves[random.randint(2, 3)]}!")
+                move_dmg = int(2*base_move_power*(Pokemon2.special_attack/self.special_defense)) # 2x for super effective
+                self.hp -= move_dmg
+                time.sleep(1)
+                delay_print(string_2_attack)
+                print(f"\n{remove(self.name)} took",int(move_dmg),"damage")
+            else: # Lower Special Defense
+                delay_print(f"\n{remove(Pokemon2.name)} used {Pokemon2.moves[random.randint(0, 1)]}!")
+                move_dmg = int(2*base_move_power*(Pokemon2.attack/self.defense)) # 2x for super effective
+                self.hp -= move_dmg
+                time.sleep(1)
+                delay_print(string_2_attack)
+                print(f"\n{remove(self.name)} took",int(move_dmg),"damage")        
+            
+            time.sleep(1)
+            
+            print(f"\n{self.name}\tHP ","|"*int(self.hp))
+            print(f"{Pokemon2.name}\tHP ","|"*int(Pokemon2.hp),"\n")
         
         # Battle has ended        
         money = random.randint(10, 1000)
@@ -270,9 +226,9 @@ if __name__ == '__main__':
                         'Fighting', 
                         ['Low Kick | Physical', 'Focus Punch | Physical', 'Focus Blast | Special', 'Aura Sphere | Special'],
                         {'HP':70,
-                         'ATTACK':1, # 110
-                         'DEFENSE':70,
-                         'SPECIAL_ATTACK':1, # 115
+                         'ATTACK':110,
+                         'DEFENSE':70, 
+                         'SPECIAL_ATTACK':115, 
                          'SPECIAL_DEFENSE':70, 
                          'SPEED':90}))
     
