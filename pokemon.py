@@ -118,18 +118,18 @@ class Pokemon:
                 # Calculate opponents lower defense stats
                 if(self.defense>self.special_defense): # Lower Physical Defense
                     delay_print(f"\n{remove(Pokemon2.name)} used {Pokemon2.moves[random.randint(2, 3)]}!")
-                    move_dmg = int(2*base_move_power*(Pokemon2.special_attack/self.special_defense)) # 2x for super effective
-                    self.hp -= move_dmg
+                    ai_move_dmg = int(2*base_move_power*(Pokemon2.special_attack/self.special_defense)) # 2x for super effective
+                    self.hp -= ai_move_dmg
                     time.sleep(1)
                     delay_print(string_2_attack)
-                    print(f"\n{remove(self.name)} took",int(move_dmg),"damage")
+                    print(f"\n{remove(self.name)} took",int(ai_move_dmg),"damage")
                 else: # Lower Special Defense
                     delay_print(f"\n{remove(Pokemon2.name)} used {Pokemon2.moves[random.randint(0, 1)]}!")
-                    move_dmg = int(2*base_move_power*(Pokemon2.attack/self.defense)) # 2x for super effective
-                    self.hp -= move_dmg
+                    ai_move_dmg = int(2*base_move_power*(Pokemon2.attack/self.defense)) # 2x for super effective
+                    self.hp -= ai_move_dmg
                     time.sleep(1)
                     delay_print(string_2_attack)
-                    print(f"\n{remove(self.name)} took",int(move_dmg),"damage")        
+                    print(f"\n{remove(self.name)} took",int(ai_move_dmg),"damage")        
                 
                 time.sleep(1)
                 
@@ -153,18 +153,18 @@ class Pokemon:
                 # Calculate opponents lower defense stat
                 if(self.defense>self.special_defense): # Lower Physical Defense
                     delay_print(f"\n{remove(Pokemon2.name)} used {Pokemon2.moves[random.randint(2, 3)]}!")
-                    move_dmg = int(2*base_move_power*(Pokemon2.special_attack/self.special_defense)) # 2x for super effective
-                    self.hp -= move_dmg
+                    ai_move_dmg = int(2*base_move_power*(Pokemon2.special_attack/self.special_defense)) # 2x for super effective
+                    self.hp -= ai_move_dmg
                     time.sleep(1)
                     delay_print(string_2_attack)
-                    print(f"\n{remove(self.name)} took",int(move_dmg),"damage")
+                    print(f"\n{remove(self.name)} took",int(ai_move_dmg),"damage")
                 else: # Lower Special Defense
                     delay_print(f"\n{remove(Pokemon2.name)} used {Pokemon2.moves[random.randint(0, 1)]}!")
-                    move_dmg = int(2*base_move_power*(Pokemon2.attack/self.defense)) # 2x for super effective
-                    self.hp -= move_dmg
+                    ai_move_dmg = int(2*base_move_power*(Pokemon2.attack/self.defense)) # 2x for super effective
+                    self.hp -= ai_move_dmg
                     time.sleep(1)
                     delay_print(string_2_attack)
-                    print(f"\n{remove(self.name)} took",int(move_dmg),"damage")        
+                    print(f"\n{remove(self.name)} took",int(ai_move_dmg),"damage")        
                 
                 time.sleep(1)
                 
