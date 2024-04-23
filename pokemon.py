@@ -73,7 +73,7 @@ class Pokemon:
             # User chooses move
             for i, x in enumerate(self.moves):
                 print(f"{i+1}.", x)
-            index = int(input('\nPick a move: '))
+            index = int(input('\nPick a move #: '))
             
             if(index <= 2): # Physical Move Selected
                 move_dmg = int(base_move_power* (self.attack/Pokemon2.defense))
@@ -349,7 +349,7 @@ if __name__ == '__main__':
     
     for i, x in enumerate(list):
         print(f"{i+1}.", x.name, "|", x.types)
-    num = int(input("\nPick a Pokemon: ")) 
+    num = int(input("\nPick a Pokemon #: ")) 
     
     playerChoice = list[num-1].name   
     delay_print(f"\nYou have chosen {remove(playerChoice)}.")
